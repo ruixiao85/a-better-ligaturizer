@@ -9,7 +9,7 @@ OUTPUT_FONT_DIR = "output-fonts"
 COPYRIGHT = '\nProgramming ligatures added by Ilya Skriblovsky from FiraCode\nFiraCode Copyright (c) 2015 by Nikita Prokopov'
 
 def get_input_fontname():
-    return raw_input('Enter the source font filename (including extension): ')
+    return input('Enter the source font filename (including extension): ')
 
 def get_input_path(input_fontname):
     return SOURCE_FONT_DIR + "/" + input_fontname
@@ -28,7 +28,7 @@ def name_without_width_variant(fontname):
     return no_variant[:-1] if (no_variant.endswith(" ") or no_variant.endswith("-")) else no_variant
 
 def get_output_fontname(input_name):
-    new_fontname = raw_input('Enter a name for your ligaturized font -- or press ENTER to use the same name: ')
+    new_fontname = input('Enter a name for your ligaturized font -- or press ENTER to use the same name: ')
     if new_fontname == "":
         new_fontname = input_name
     return name_without_width_variant(name_without_file_extension(new_fontname))
@@ -313,4 +313,4 @@ output_name = output_font['filename']
 output_full_path = OUTPUT_FONT_DIR + "/" + output_name
 font.generate(output_name)
 os.rename(output_name, output_full_path)
-print "Generated ligaturized font %s in %s" % (output_font['fullname'], output_full_path)
+print("Generated ligaturized font %s in %s" % (output_font['fullname'], output_full_path))
